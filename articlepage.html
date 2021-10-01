@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>高雄鐵馬行</title>
+        <!--!fontawsome-->
+        <script src="https://kit.fontawesome.com/eb2b622fe6.js" crossorigin="anonymous"></script>
+        <!--bs5 icon-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+    
+        <link rel="stylesheet" href="./css/all.css" />
+      </head>
+<body>
+    <!-- header navbar -->
+    <header class="bg-white border-bottom border-primary border-4 sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="container">
+            <a class="navbar-brand py-3" href="#">
+              <img src="logo.jpg" alt="logo" width="111" height="40" />
+            </a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link px-4" href="#">關於我們</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link px-4" href="#">熱門路線</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link px-4" href="#">我的路線</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link px-4" href="#">會員中心</a>
+                </li>
+              </ul>
+              <div>
+                <button class="btn btn-primary px-4 me-3" data-bs-toggle="modal" data-bs-target="#loginModal">登入</button>
+                <button class="btn btn-outline-secondary px-4">註冊</button>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+        <!-- login form -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header bg-lightBlue">
+              <h5 class="modal-title fw-bold font-24" id="loginModalLabel">登入</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="account" class="form-label">帳號</label>
+                <input type="text" name="account" id="account" class="form-control" />
+              </div>
+              <div class="mb-1">
+                <label for="password" class="form-label">密碼</label>
+                <input type="password" name="password" id="password" class="form-control" />
+              </div>
+              <a href="#" class="font-14 text-lightBrown">忘記密碼？</a>
+            </div>
+            <div class="modal-footer border-0">
+              <button type="button" class="btn btn-primary w-100 fw-bold">登入</button>
+            </div>
+            <div class="position-relative d-flex justify-content-center my-4 p-1">
+              <div class="formTitle font-14 bg-white px-1">還沒有帳號？<a href="#" class="text-info">註冊一個帳號</a></div>
+              <div class="formLine position-absolute border-bottom border-1 border-lightBrown w-100 top-50 start-0 translate-middle-y"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="page-section" id="contact">
+        <div class="container">
+            <div class="row  justify-content-center">
+                <img src="images/D01.jpg" alt="" class="">
+                
+                <div class="text-center">
+
+          
+                 
+                  
+                    <p class="fw-bold text-center font-32 my-3 pb-3">旗山美濃文旅</p>
+                    
+                    
+                    <img class="d-block rounded-circle float-start " style="width: 70px;height: 70px" src="images/I1.jpg">
+                     
+                    <div class="d-flex justify-content-between ">
+                      <h3><span class="badge bg-light text-darkBrown ml-3  mt-5 ">紀錄者:大丁</span></h3>
+                      <div>
+                        <button type="button" class="btn btn-outline-success img-thumbnail h-50 ">
+                          <i class="bi bi-bicycle fs-5"></i>
+                        </button>
+                        <button type="button" class="btn btn-outline-danger rounded-pill  h-50  ">
+                          <i class="bi bi-heart fs-5"></i>
+                        </button>
+
+                      </div>
+                      
+                    </div>
+                    
+
+                    
+                    <div class="d-flex justify-content-between py-2">
+                        <div class=" px-3 font-20"><span>1 days 20:05:20</span></div> 
+                    </div>
+                    
+                    <div class="d-flex justify-content-end py-2 ">
+                      <a href="#" class="link-info"><p>#海產好吃&nbsp  </p></a>
+                      <a href="#" class="link-info"><p>#旗山&nbsp  </p></a>
+                      <a href="#" class="link-info"><p>#坐船&nbsp  </p></a>
+                      <a href="#" class="link-info"><p>#旅行的意義&nbsp  </p></a>
+                      
+                    </div>
+
+                </div>
+                    
+                    <hr class="divider" />
+                    <div class="text-left">
+                      <p class="text-muted mb-5 font-20">
+                        獨自一人旅遊沒有想像中困難<br>
+
+                        反而能更體會旅行中樂趣<br>
+
+                        我獨自續留高雄體驗單人旅行<br>
+
+                        目標~西子灣＆旗津<br>
+                        <img src="images/V01.png" alt=""><br>
+
+ 
+
+                        從美麗島站要轉乘去西子灣站<br>
+
+                        有個小攤位促銷西子灣租單車打9折優惠，<br>
+
+                        只要從西子灣2號出口處左轉，就可看見這家出租腳踏車店。<br>
+
+                        對我來說在陌生地方能方便取車很重要<br>
+
+                        但是必須壓證件喔！<br>
+                        騎著單車隨處晃晃，被這雄偉建築吸引<br>
+
+                        武德殿是個劍道、柔道場所，剛好有<br>
+
+                        學員在上課，不能入內打擾~<br>
+                        騎上西子灣觀景橋，從高處觀看2邊美麗<br>
+                        <img src="images/V02.jpg" alt=""><br>
+                        風景、海景，與大小船隻航行於海面<br>
+
+                        聞聞海的味道~真令人舒暢<br>
+
+                        搭渡輪船到旗津，就是在橋下鼓山<br>
+                        <img src="images/V03.jpg" alt=""><br>
+
+                        輪渡站處搭乘~<br>
+                        國立中山大學~<br>
+
+                        觀浪步道必來賞海景~只不過艷陽高照<br>
+
+                        大家通通躲起來避暑，只有Randa騎<br>
+
+                        單車趴趴造~熱斃了啦<br>
+
+                        黃昏，觀海步道非常適合觀看夕陽餘暉<br>
+
+                        也是浪漫約會景點<br>
+                        在中山大學觀浪台<br>
+
+                        發現令Randa 超感興趣的地方~<br>
+
+                        有看到手指頭指的地方嗎~?<br>
+
+                        是燈塔、是燈塔~岸邊還有石牌坊<br>
+
+                        那區屬於旗津，好驚訝！果然<br>
+
+                        是最近的遠距離…必須搭船才能<br>
+                        <img src="images/V04.jpg" alt=""><br>
+                        到達~<br>
+                        市定古蹟---雄鎮北門<br>
+
+                        與觀浪平臺互通，不同方向到達<br>
+
+                        只不過，這裡是可以從高處觀景<br>
+                        從這處又可看到燈塔~<br>
+
+                        藍天白雲平靜海面，隱隱約約可<br>
+
+                        看到作業船隻與大型輪船<br>
+
+                        走~！ㄧ起搭渡輪船去旗津<br>
+
+                        港邊處處可見85大樓，必定要來張合照<br>
+                        單車騎上渡輪，使用悠遊卡有優惠喔<br>
+                        <img src="images/V05.jpg" alt=""><br>
+
+                        好特別的體驗，機車、單車有專屬車道<br>
+
+                        並分成2線，ㄧ線是在地居專用道，<br>
+
+                        另一線是遊客專用道<br>
+
+                        騎車上渡輪好處~不用在大太陽底下<br>
+
+                        排隊上船，很方便喔！<br>
+                        約在海面上行駛5分鐘，就來到旗津<br>
+
+                        怎那麼快，和Randa姐用手機聊沒多久<br>
+
+                        就到啦~ <br>
+                        來到燈塔處口，有2個景點可欣賞<br>
+
+                        左邊往旗後砲台，右邊往燈塔，並有設置<br>
+
+                        停車格，方便停車<br>
+                        走向燈塔坡道上，能近距離見輪船<br>
+
+                        少機會能見到巨大輪船好興奮<br>
+
+                        大太陽底下，來看燈塔真是錯誤選擇<br>
+
+                        熱到不要不要的~<br>
+                        雄壯85大樓與旗津小鎮<br>
+
+                        望著寬闊景色難以置信台灣如此美<br>
+
+                        太少去發掘台灣的美~<br>
+                        高雄燈塔~<br>
+
+                        全白燈塔與建築物很美吧！！！<br>
+
+                        值得走上ㄧ趟<br>
+                        旗後砲台<br>
+
+                        又是另一種風情，更可看到純樸旗津<br>
+
+                        小鎮與旗津海灣<br>
+                        在海水浴場附近有個秘境<br>
+
+                        星空隧道<br>
+                        <img src="images/V06.jpg" alt=""><br>
+                        騎乘在隧道裡頭，涼風吹拂更顯悠閒<br>
+
+                        牆壁也繪畫上了ㄧ些圖騰<br>
+
+                        出口處出來又是令人驚奇，很美的海面<br>
+                        隧道出口旁有個小徑<br>
+
+                        也可見到些許仙人掌<br>
+
+                        走~往小徑探險去<br>
+                        從小徑出來~竟然是在西子灣看到的<br>
+
+                        石牌坊~終於到達了這<br>
+                        從旗津探望西子灣~<br>
+
+                        探險成功！！！<br>
+                        </p>
+
+                      
+
+                    </div>
+                    
+                
+            </div>
+            <div class="card" >
+              <h5 class="text-center bg-light rounded-1 border-start border-end border-4 border-primary py-2 fw-bold tracking-3">路線相關評價</h5>
+              <div class="card-body ">
+                
+                <h6 class="card-title"><strong>Candy-Lin</strong><img src="images/start.jpg" style="width: 25px;"><img src="images/start.jpg" style="width: 25px;"><img src="images/start.jpg" style="width: 25px;"><img src="images/start.jpg" style="width: 25px;"></h6>
+                <p class="card-text font-12">不推薦想瘦身減肥者來騎這條路線，因為老街美食太多樣，看到不吃很難受~~完全無法瘦身啊!!</p>
+                <h6 class="card-title"><strong>鐵人王</strong><img src="images/start.jpg" style="width: 25px;"><img src="images/start.jpg" style="width: 25px;"><img src="images/start.jpg" style="width: 25px;"><img src="images/start.jpg" style="width: 25px;"></h6>
+                <p class="card-text font-12">路線平坦、騎起來輕鬆舒服，沿途有很多景點可以參觀拍照，是單車愛好者必騎景點啊!!沒到過旗津別說你來過高雄~~假日必來騎騎的口袋路線</p>
+                <h6 class="card-title"><strong>Kevin</strong><img src="images/start.jpg" style="width: 25px;"><img src="images/start.jpg" style="width: 25px;"><img src="images/start.jpg" style="width: 25px;"><img src="images/start.jpg" style="width: 25px;"></h6>
+                <p class="card-text font-12">很適合假日帶小孩一起來騎的路線，還能搭渡輪欣賞港口風景，星光隧道很有特色，還能跟燈塔拍照，重點是吃東西很方便，老街美食選擇多，唯獨防曬要做好以免曬傷。</p>
+                <h6 class="card-title"><strong>JOJO</strong><img src="images/start.jpg" style="width: 25px;"><img src="images/start.jpg" style="width: 25px;"><img src="images/start.jpg" style="width: 25px;"></h6>
+                <p class="card-text font-12">還不錯!!但個人體力不支無法騎完全程，推薦老街的地瓜酥必買，好吃!!但老街路口轉角的烤魷魚不太新鮮，建議買肉羹店旁邊那間。</p>
+                <h6 class="card-title"><strong>Jack</strong><img src="images/start.jpg" style="width: 25px;"><img src="images/start.jpg" style="width: 25px;"><img src="images/start.jpg" style="width: 25px;"></h6>
+                <p class="card-text font-12">好騎、好玩、好吃，超推薦!!</p>
+                <a href="#" class="btn btn-primary btn-sm">看更多留言</a>
+                
+              </div>
+              <form >
+                <h5 class="text-center bg-light rounded-1 border-start border-end border-4 border-primary py-2 fw-bold tracking-3">我的評價</h5>
+              <div class="card-body ">
+                <div class="row  justify-content-start">
+                
+                  <div class="col-3 text-center my-2 ">
+                    
+                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="暱稱">
+                    
+                  </div>
+                  <div class="col-2 text-center  ">
+                    <span id="star1" class="font-32 s">☆</span>
+                    <span id="star2" class="font-32 s">☆</span>
+                    <span id="star3" class="font-32 s">☆</span>
+                    <span id="star4" class="font-32 s">☆</span>
+                    <span id="star5" class="font-32 s">☆</span>
+                  </div>
+                  
+                </div>
+                
+                <div class="row  justify-content-center">
+                  <div class="text-center my-2 ">
+                    
+                    <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="內容" rows="3"></textarea>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary">送出</button>
+
+              </div>
+              </form>
+              
+
+              
+            </div>
+          </div>
+           
+            
+            
+        </div>
+    </section>
+
+    <div class="container-fluid bg-lighter py-5">
+      <div class="container">
+       
+        <h4 class="ps-3 border-start border-4 border-primary fw-bold my-4 mb-3">其他熱門路線</h4>
+        <div class="row">
+          <li class="col-12 col-md-4">
+            <div class="card mb-3">
+              <div class="position-absolute" style="top: 20px; right: 20px">
+                <button type="button" class="btn btn-outline-success img-thumbnail ">
+                  <i class="bi bi-bicycle fs-5"></i>
+                </button>
+                <button type="button" class="btn btn-outline-danger rounded-pill">
+                  <i class="bi bi-heart fs-5"></i>
+                </button>
+              </div>
+              <img src="images/D02.jpg" class="card-img-top" alt="..." />
+                    <div class="card-body">
+                      
+                      <img class="d-block rounded-circle float-start" style="width: 30px;height: 30px" src="images/I2.png">
+                      <div class="d-flex justify-content-between py-2">
+                        
+                        <div class="badge bg-light text-darkBrown px-3">紀錄者:may33</div>
+                        <div class=" px-3"><span>2 days 20:17:20</span></div>
+                        
+                        
+                      </div>
+
+                      <h5 class="card-title fw-bold text-center font-32 my-3 border-bottom border-1 border-primary pb-3">六龜十八羅漢山自然保護</h5>
+                      
+                      <p class="card-text">轄區內有秀麗的山巒、保育完好的森林、優質的湯泉與豐富的自然生態資源，依山傍水、氣候溫和宜人，日照充足。</p>
+                      <a href="#" class="btn btn-primary w-100 fw-bold">看更多</a>
+                      <div class="d-flex justify-content-between">
+                        <div><i class="bi bi-eye fs-4"></i><span class="ms-2">663</span></div>
+                        <div class="text-primary"><i class="bi bi-star-fill fs-4"></i><span class="ms-2">3.87</span></div>
+                      </div>
+                    </div>
+            </div>
+          </li>
+          <li class="col-12 col-md-4">
+            <div class="card mb-3">
+              <div class="position-absolute " style="top: 20px; right: 20px">
+                <button type="button" class="btn btn-outline-success img-thumbnail ">
+                  <i class="bi bi-bicycle fs-5"></i>
+                </button>
+                <button type="button" class="btn btn-outline-danger rounded-pill ">
+                  <i class="bi bi-heart fs-5 "></i>
+                </button>
+              </div>
+              <img src="images/D03.jpg" class="card-img-top" alt="..." />
+                    <div class="card-body">
+                      <img class="d-block rounded-circle float-start" style="width: 30px;height: 30px" src="images/I3.jpg">
+                      <div class="d-flex justify-content-between py-2">
+                        
+                        <div class="badge bg-light text-darkBrown px-3">紀錄者:小白</div>
+                        <div class=" px-3"><span>5 days 15:05:20</span></div>
+                        
+                        
+                      </div>
+                      <h5 class="card-title fw-bold text-center font-32 my-3 border-bottom border-1 border-primary pb-3">愛河連接蓮池潭</h5>
+                      
+                      <p class="card-text">高雄市"愛河"沿線最完整也最宜人的一條單車步道，沿著愛河兩岸河堤，北至"蓮池潭"、南至"愛河出海口"。</p>
+                      <a href="#" class="btn btn-primary w-100 fw-bold">看更多</a>
+                      <div class="d-flex justify-content-between">
+                        <div><i class="bi bi-eye fs-4"></i><span class="ms-2">564</span></div>
+                        <div class="text-primary"><i class="bi bi-star-fill fs-4"></i><span class="ms-2">4.11</span></div>
+                      </div>
+                    </div>
+            </div>
+          </li>
+          <li class="col-12 col-md-4">
+            <div class="card mb-3">
+              <div class="position-absolute" style="top: 20px; right: 20px">
+                <button type="button" class="btn btn-outline-success img-thumbnail ">
+                  <i class="bi bi-bicycle fs-5"></i>
+                </button>
+                <button type="button" class="btn btn-outline-danger rounded-pill">
+                  <i class="bi bi-heart fs-5"></i>
+                </button>
+              </div>
+              <img src="images/D04.jpg" class="card-img-top" alt="..." />
+                    <div class="card-body">
+                      <img class="d-block rounded-circle float-start" style="width: 30px;height: 30px" src="images/I4.jpg">
+                      <div class="d-flex justify-content-between py-2">
+                        
+                        <div class="badge bg-light text-darkBrown px-3">紀錄者:胖胖</div>
+                        <div class=" px-3"><span>1 days 3:05:20</span></div>
+                        
+                        
+                      </div>
+                      <h5 class="card-title fw-bold text-center font-32 my-3 border-bottom border-1 border-primary pb-3">阿公店水庫自行車道</h5>
+                      
+                      <p class="card-text">車道內設有環湖10景，分別為崗山倒影、長堤夕照、龍口吞泉、水漾釣月、煙波虹橋、竹林泮騎、樹影果香、晨鐘......</p>
+                      <a href="#" class="btn btn-primary w-100 fw-bold">看更多</a>
+                      <div class="d-flex justify-content-between">
+                        <div><i class="bi bi-eye fs-4"></i><span class="ms-2">1085</span></div>
+                        <div class="text-primary"><i class="bi bi-star-fill fs-4"></i><span class="ms-2">3.90</span></div>
+                      </div>
+                    </div>
+            </div>
+          </li>
+        </div>
+      </div>
+    </div>
+
+  
+      <!-- 頁尾 -->
+      <footer class="container-fluid text-center py-4 bg-darkBrown text-white">Copyright © 高雄鐵馬行 All rights reserved.</footer>
+      <!-- end of 頁尾 -->
+  
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+        crossorigin="anonymous"
+      ></script>
+      
+    
+</body>
+<script>
+  let spans =document.querySelectorAll("span.s");
+for(let span of spans){
+  span.addEventListener("mouseover", mouseOver);
+  span.addEventListener("mouseout", mouseOut);
+  span.addEventListener("click", Click);
+  span.addEventListener("dblclick", dblClick);
+}
+let starCount=document.getElementById('starCount');
+
+
+
+
+function mouseOver(){
+  let starhere = this.id.charAt(4);
+  for(let j= 0;  j<5 ; j++){
+    spans[j].innerHTML="☆";
+    spans[j].style.color="black";
+  }
+  for(let i= 0; i < starhere; i++){
+      
+      spans[i].innerHTML="★";
+      spans[i].style.color="#F4D19B";
+  }
+  
+
+}
+
+function mouseOut(){
+  
+  
+  for(let j= 0;  j<5 ; j++){
+    spans[j].innerHTML="☆";
+    spans[j].style.color="black";
+      
+  }
+  for(let i= 0; i < startruehere; i++){
+    spans[i].innerHTML="★"; 
+    spans[i].style.color="#F4D19B";
+  }
+ 
+}
+
+var startruehere;
+
+function Click(){
+  startruehere = this.id.charAt(4);
+
+  
+  for(let j= 0;  j<5 ; j++){
+    spans[j].innerHTML="☆";
+    spans[j].style.color="black";
+  }
+  for(let i= 0; i < startruehere; i++){
+    spans[i].innerHTML="★"; 
+    spans[i].style.color="#F4D19B";
+  }
+  
+
+  
+}
+
+function dblClick(){
+  for(let j= 0;  j<5 ; j++){
+    spans[j].innerHTML="★"; 
+    spans[j].style.color="#F4D19B";
+  }
+  startruehere=0;
+  
+}
+</script>
+</html>

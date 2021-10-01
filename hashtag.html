@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>高雄鐵馬行</title>
+        <!--!fontawsome-->
+        <script src="https://kit.fontawesome.com/eb2b622fe6.js" crossorigin="anonymous"></script>
+        <!--bs5 icon-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+    
+        <link rel="stylesheet" href="./css/all.css" />
+      </head>
+<body>
+    <!-- header navbar -->
+    <header class="bg-white border-bottom border-primary border-4 sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="container">
+            <a class="navbar-brand py-3" href="#">
+              <img src="logo.jpg" alt="logo" width="111" height="40" />
+            </a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link px-4" href="#">關於我們</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link px-4" href="#">熱門路線</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link px-4" href="#">我的路線</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link px-4" href="#">會員中心</a>
+                </li>
+              </ul>
+              <div>
+                <button class="btn btn-primary px-4 me-3" data-bs-toggle="modal" data-bs-target="#loginModal">登入</button>
+                <button class="btn btn-outline-secondary px-4">註冊</button>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+        <!-- login form -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header bg-lightBlue">
+              <h5 class="modal-title fw-bold font-24" id="loginModalLabel">登入</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="account" class="form-label">帳號</label>
+                <input type="text" name="account" id="account" class="form-control" />
+              </div>
+              <div class="mb-1">
+                <label for="password" class="form-label">密碼</label>
+                <input type="password" name="password" id="password" class="form-control" />
+              </div>
+              <a href="#" class="font-14 text-lightBrown">忘記密碼？</a>
+            </div>
+            <div class="modal-footer border-0">
+              <button type="button" class="btn btn-primary w-100 fw-bold">登入</button>
+            </div>
+            <div class="position-relative d-flex justify-content-center my-4 p-1">
+              <div class="formTitle font-14 bg-white px-1">還沒有帳號？<a href="#" class="text-info">註冊一個帳號</a></div>
+              <div class="formLine position-absolute border-bottom border-1 border-lightBrown w-100 top-50 start-0 translate-middle-y"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <section class="page-section" id="contact">
+        <div class="container">
+          <div class="row  justify-content-center">
+            <p class="fw-bold text-center font-32 my-3 pb-3">TOP1 #西子灣 2336件</p>
+
+          </div>
+          <div class="row">
+            <li class="col-12 col-md-4">
+              <div class="card mb-3">
+                <div class="position-absolute" style="top: 20px; right: 20px">
+                  <button type="button" class="btn btn-outline-success img-thumbnail ">
+                    <i class="bi bi-bicycle fs-5"></i>
+                  </button>
+                  <button type="button" class="btn btn-outline-danger rounded-pill">
+                    <i class="bi bi-heart fs-5"></i>
+                  </button>
+                </div>
+                <img src="images/D02.jpg" class="card-img-top" alt="..." />
+                      <div class="card-body">
+                        
+                        <img class="d-block rounded-circle float-start" style="width: 30px;height: 30px" src="images/I2.png">
+                        <div class="d-flex justify-content-between py-2">
+                          
+                          <div class="badge bg-light text-darkBrown px-3">紀錄者:may33</div>
+                          <div class=" px-3"><span>2 days 20:17:20</span></div>
+                          
+                          
+                        </div>
+  
+                        <h5 class="card-title fw-bold text-center font-32 my-3 border-bottom border-1 border-primary pb-3">六龜十八羅漢山自然保護</h5>
+                        
+                        <p class="card-text">轄區內有秀麗的山巒、保育完好的森林、優質的湯泉與豐富的自然生態資源，依山傍水、氣候溫和宜人，日照充足。</p>
+                        <a href="#" class="btn btn-primary w-100 fw-bold">看更多</a>
+                        <div class="d-flex justify-content-between">
+                          <div><i class="bi bi-eye fs-4"></i><span class="ms-2">663</span></div>
+                          <div class="text-primary"><i class="bi bi-star-fill fs-4"></i><span class="ms-2">3.87</span></div>
+                        </div>
+                      </div>
+              </div>
+            </li>
+            <li class="col-12 col-md-4">
+              <div class="card mb-3">
+                <div class="position-absolute " style="top: 20px; right: 20px">
+                  <button type="button" class="btn btn-outline-success img-thumbnail ">
+                    <i class="bi bi-bicycle fs-5"></i>
+                  </button>
+                  <button type="button" class="btn btn-outline-danger rounded-pill ">
+                    <i class="bi bi-heart fs-5 "></i>
+                  </button>
+                </div>
+                <img src="images/D03.jpg" class="card-img-top" alt="..." />
+                      <div class="card-body">
+                        <img class="d-block rounded-circle float-start" style="width: 30px;height: 30px" src="images/I3.jpg">
+                        <div class="d-flex justify-content-between py-2">
+                          
+                          <div class="badge bg-light text-darkBrown px-3">紀錄者:小白</div>
+                          <div class=" px-3"><span>5 days 15:05:20</span></div>
+                          
+                          
+                        </div>
+                        <h5 class="card-title fw-bold text-center font-32 my-3 border-bottom border-1 border-primary pb-3">愛河連接蓮池潭</h5>
+                        
+                        <p class="card-text">高雄市"愛河"沿線最完整也最宜人的一條單車步道，沿著愛河兩岸河堤，北至"蓮池潭"、南至"愛河出海口"。</p>
+                        <a href="#" class="btn btn-primary w-100 fw-bold">看更多</a>
+                        <div class="d-flex justify-content-between">
+                          <div><i class="bi bi-eye fs-4"></i><span class="ms-2">564</span></div>
+                          <div class="text-primary"><i class="bi bi-star-fill fs-4"></i><span class="ms-2">4.11</span></div>
+                        </div>
+                      </div>
+              </div>
+            </li>
+            <li class="col-12 col-md-4">
+              <div class="card mb-3">
+                <div class="position-absolute" style="top: 20px; right: 20px">
+                  <button type="button" class="btn btn-outline-success img-thumbnail ">
+                    <i class="bi bi-bicycle fs-5"></i>
+                  </button>
+                  <button type="button" class="btn btn-outline-danger rounded-pill">
+                    <i class="bi bi-heart fs-5"></i>
+                  </button>
+                </div>
+                <img src="images/D04.jpg" class="card-img-top" alt="..." />
+                      <div class="card-body">
+                        <img class="d-block rounded-circle float-start" style="width: 30px;height: 30px" src="images/I4.jpg">
+                        <div class="d-flex justify-content-between py-2">
+                          
+                          <div class="badge bg-light text-darkBrown px-3">紀錄者:胖胖</div>
+                          <div class=" px-3"><span>1 days 3:05:20</span></div>
+                          
+                          
+                        </div>
+                        <h5 class="card-title fw-bold text-center font-32 my-3 border-bottom border-1 border-primary pb-3">阿公店水庫自行車道</h5>
+                       
+                        <p class="card-text">車道內設有環湖10景，分別為崗山倒影、長堤夕照、龍口吞泉、水漾釣月、煙波虹橋、竹林泮騎、樹影果香、晨鐘......</p>
+                        <a href="#" class="btn btn-primary w-100 fw-bold">看更多</a>
+                        <div class="d-flex justify-content-between">
+                          <div><i class="bi bi-eye fs-4"></i><span class="ms-2">1085</span></div>
+                          <div class="text-primary"><i class="bi bi-star-fill fs-4"></i><span class="ms-2">3.90</span></div>
+                        </div>
+                      </div>
+              </div>
+            </li>
+            <a href="#" class="btn btn-primary w-100 fw-bold">看更多</a>
+          </div>
+
+          <div class="row  justify-content-center">
+            <p class="fw-bold text-center font-32 my-3 pb-3">TOP2 #約會勝地 1456件</p>
+
+          </div>
+          <div class="row">
+            <li class="col-12 col-md-4">
+              <div class="card mb-3">
+                <div class="position-absolute" style="top: 20px; right: 20px">
+                  <button type="button" class="btn btn-outline-success img-thumbnail ">
+                    <i class="bi bi-bicycle fs-5"></i>
+                  </button>
+                  <button type="button" class="btn btn-outline-danger rounded-pill">
+                    <i class="bi bi-heart fs-5"></i>
+                  </button>
+                </div>
+                <img src="images/D02.jpg" class="card-img-top" alt="..." />
+                      <div class="card-body">
+                        
+                        <img class="d-block rounded-circle float-start" style="width: 30px;height: 30px" src="images/I2.png">
+                        <div class="d-flex justify-content-between py-2">
+                          
+                          <div class="badge bg-light text-darkBrown px-3">紀錄者:may33</div>
+                          <div class=" px-3"><span>2 days 20:17:20</span></div>
+                          
+                          
+                        </div>
+  
+                        <h5 class="card-title fw-bold text-center font-32 my-3 border-bottom border-1 border-primary pb-3">六龜十八羅漢山自然保護</h5>
+                        
+                        <p class="card-text">轄區內有秀麗的山巒、保育完好的森林、優質的湯泉與豐富的自然生態資源，依山傍水、氣候溫和宜人，日照充足。</p>
+                        <a href="#" class="btn btn-primary w-100 fw-bold">看更多</a>
+                        <div class="d-flex justify-content-between">
+                          <div><i class="bi bi-eye fs-4"></i><span class="ms-2">663</span></div>
+                          <div class="text-primary"><i class="bi bi-star-fill fs-4"></i><span class="ms-2">3.87</span></div>
+                        </div>
+                      </div>
+              </div>
+            </li>
+            <li class="col-12 col-md-4">
+              <div class="card mb-3">
+                <div class="position-absolute " style="top: 20px; right: 20px">
+                  <button type="button" class="btn btn-outline-success img-thumbnail ">
+                    <i class="bi bi-bicycle fs-5"></i>
+                  </button>
+                  <button type="button" class="btn btn-outline-danger rounded-pill ">
+                    <i class="bi bi-heart fs-5 "></i>
+                  </button>
+                </div>
+                <img src="images/D03.jpg" class="card-img-top" alt="..." />
+                      <div class="card-body">
+                        <img class="d-block rounded-circle float-start" style="width: 30px;height: 30px" src="images/I3.jpg">
+                        <div class="d-flex justify-content-between py-2">
+                          
+                          <div class="badge bg-light text-darkBrown px-3">紀錄者:小白</div>
+                          <div class=" px-3"><span>5 days 15:05:20</span></div>
+                          
+                          
+                        </div>
+                        <h5 class="card-title fw-bold text-center font-32 my-3 border-bottom border-1 border-primary pb-3">愛河連接蓮池潭</h5>
+                        
+                        <p class="card-text">高雄市"愛河"沿線最完整也最宜人的一條單車步道，沿著愛河兩岸河堤，北至"蓮池潭"、南至"愛河出海口"。</p>
+                        <a href="#" class="btn btn-primary w-100 fw-bold">看更多</a>
+                        <div class="d-flex justify-content-between">
+                          <div><i class="bi bi-eye fs-4"></i><span class="ms-2">564</span></div>
+                          <div class="text-primary"><i class="bi bi-star-fill fs-4"></i><span class="ms-2">4.11</span></div>
+                        </div>
+                      </div>
+              </div>
+            </li>
+            <li class="col-12 col-md-4">
+              <div class="card mb-3">
+                <div class="position-absolute" style="top: 20px; right: 20px">
+                  <button type="button" class="btn btn-outline-success img-thumbnail ">
+                    <i class="bi bi-bicycle fs-5"></i>
+                  </button>
+                  <button type="button" class="btn btn-outline-danger rounded-pill">
+                    <i class="bi bi-heart fs-5"></i>
+                  </button>
+                </div>
+                <img src="images/D04.jpg" class="card-img-top" alt="..." />
+                      <div class="card-body">
+                        <img class="d-block rounded-circle float-start" style="width: 30px;height: 30px" src="images/I4.jpg">
+                        <div class="d-flex justify-content-between py-2">
+                          
+                          <div class="badge bg-light text-darkBrown px-3">紀錄者:胖胖</div>
+                          <div class=" px-3"><span>1 days 3:05:20</span></div>
+                          
+                          
+                        </div>
+                        <h5 class="card-title fw-bold text-center font-32 my-3 border-bottom border-1 border-primary pb-3">阿公店水庫自行車道</h5>
+                       
+                        <p class="card-text">車道內設有環湖10景，分別為崗山倒影、長堤夕照、龍口吞泉、水漾釣月、煙波虹橋、竹林泮騎、樹影果香、晨鐘......</p>
+                        <a href="#" class="btn btn-primary w-100 fw-bold">看更多</a>
+                        <div class="d-flex justify-content-between">
+                          <div><i class="bi bi-eye fs-4"></i><span class="ms-2">1085</span></div>
+                          <div class="text-primary"><i class="bi bi-star-fill fs-4"></i><span class="ms-2">3.90</span></div>
+                        </div>
+                      </div>
+                
+              </div>
+            </li>
+            <a href="#" class="btn btn-primary w-100 fw-bold">看更多</a>
+          </div>
+
+
+          <div class="row  justify-content-center">
+            <p class="fw-bold text-center font-32 my-3 pb-3">TOP3 #旗津一日遊 742件</p>
+
+          </div>
+          <div class="row">
+            <li class="col-12 col-md-4">
+              <div class="card mb-3">
+                <div class="position-absolute" style="top: 20px; right: 20px">
+                  <button type="button" class="btn btn-outline-success img-thumbnail ">
+                    <i class="bi bi-bicycle fs-5"></i>
+                  </button>
+                  <button type="button" class="btn btn-outline-danger rounded-pill">
+                    <i class="bi bi-heart fs-5"></i>
+                  </button>
+                </div>
+                <img src="images/D02.jpg" class="card-img-top" alt="..." />
+                      <div class="card-body">
+                        
+                        <img class="d-block rounded-circle float-start" style="width: 30px;height: 30px" src="images/I2.png">
+                        <div class="d-flex justify-content-between py-2">
+                          
+                          <div class="badge bg-light text-darkBrown px-3">紀錄者:may33</div>
+                          <div class=" px-3"><span>2 days 20:17:20</span></div>
+                          
+                          
+                        </div>
+  
+                        <h5 class="card-title fw-bold text-center font-32 my-3 border-bottom border-1 border-primary pb-3">六龜十八羅漢山自然保護</h5>
+                        
+                        <p class="card-text">轄區內有秀麗的山巒、保育完好的森林、優質的湯泉與豐富的自然生態資源，依山傍水、氣候溫和宜人，日照充足。</p>
+                        <a href="#" class="btn btn-primary w-100 fw-bold">看更多</a>
+                        <div class="d-flex justify-content-between">
+                          <div><i class="bi bi-eye fs-4"></i><span class="ms-2">663</span></div>
+                          <div class="text-primary"><i class="bi bi-star-fill fs-4"></i><span class="ms-2">3.87</span></div>
+                        </div>
+                      </div>
+              </div>
+            </li>
+            <li class="col-12 col-md-4">
+              <div class="card mb-3">
+                <div class="position-absolute " style="top: 20px; right: 20px">
+                  <button type="button" class="btn btn-outline-success img-thumbnail ">
+                    <i class="bi bi-bicycle fs-5"></i>
+                  </button>
+                  <button type="button" class="btn btn-outline-danger rounded-pill ">
+                    <i class="bi bi-heart fs-5 "></i>
+                  </button>
+                </div>
+                <img src="images/D03.jpg" class="card-img-top" alt="..." />
+                      <div class="card-body">
+                        <img class="d-block rounded-circle float-start" style="width: 30px;height: 30px" src="images/I3.jpg">
+                        <div class="d-flex justify-content-between py-2">
+                          
+                          <div class="badge bg-light text-darkBrown px-3">紀錄者:小白</div>
+                          <div class=" px-3"><span>5 days 15:05:20</span></div>
+                          
+                          
+                        </div>
+                        <h5 class="card-title fw-bold text-center font-32 my-3 border-bottom border-1 border-primary pb-3">愛河連接蓮池潭</h5>
+                       
+                        <p class="card-text">高雄市"愛河"沿線最完整也最宜人的一條單車步道，沿著愛河兩岸河堤，北至"蓮池潭"、南至"愛河出海口"。</p>
+                        <a href="#" class="btn btn-primary w-100 fw-bold">看更多</a>
+                        <div class="d-flex justify-content-between">
+                          <div><i class="bi bi-eye fs-4"></i><span class="ms-2">564</span></div>
+                          <div class="text-primary"><i class="bi bi-star-fill fs-4"></i><span class="ms-2">4.11</span></div>
+                        </div>
+                      </div>
+              </div>
+            </li>
+            <li class="col-12 col-md-4">
+              <div class="card mb-3">
+                <div class="position-absolute" style="top: 20px; right: 20px">
+                  <button type="button" class="btn btn-outline-success img-thumbnail ">
+                    <i class="bi bi-bicycle fs-5"></i>
+                  </button>
+                  <button type="button" class="btn btn-outline-danger rounded-pill">
+                    <i class="bi bi-heart fs-5"></i>
+                  </button>
+                </div>
+                <img src="images/D04.jpg" class="card-img-top" alt="..." />
+                      <div class="card-body">
+                        <img class="d-block rounded-circle float-start" style="width: 30px;height: 30px" src="images/I4.jpg">
+                        <div class="d-flex justify-content-between py-2">
+                          
+                          <div class="badge bg-light text-darkBrown px-3">紀錄者:胖胖</div>
+                          <div class=" px-3"><span>1 days 3:05:20</span></div>
+                          
+                          
+                        </div>
+                        <h5 class="card-title fw-bold text-center font-32 my-3 border-bottom border-1 border-primary pb-3">阿公店水庫自行車道</h5>
+                        
+                        <p class="card-text">車道內設有環湖10景，分別為崗山倒影、長堤夕照、龍口吞泉、水漾釣月、煙波虹橋、竹林泮騎、樹影果香、晨鐘......</p>
+                        <a href="#" class="btn btn-primary w-100 fw-bold">看更多</a>
+                        <div class="d-flex justify-content-between">
+                          <div><i class="bi bi-eye fs-4"></i><span class="ms-2">1085</span></div>
+                          <div class="text-primary"><i class="bi bi-star-fill fs-4"></i><span class="ms-2">3.90</span></div>
+                        </div>
+                      </div>
+                
+              </div>
+            </li>
+            <a href="#" class="btn btn-primary w-100 fw-bold">看更多</a>
+          </div>
+
+          <div class="row  justify-content-center">
+            <p class="fw-bold text-center font-32 my-3 pb-3">TOP4 #海產 650件</p>
+
+          </div>
+          <div class="row">
+            <li class="col-12 col-md-4">
+              <div class="card mb-3">
+                <div class="position-absolute" style="top: 20px; right: 20px">
+                  <button type="button" class="btn btn-outline-success img-thumbnail ">
+                    <i class="bi bi-bicycle fs-5"></i>
+                  </button>
+                  <button type="button" class="btn btn-outline-danger rounded-pill">
+                    <i class="bi bi-heart fs-5"></i>
+                  </button>
+                </div>
+                <img src="images/D02.jpg" class="card-img-top" alt="..." />
+                      <div class="card-body">
+                        
+                        <img class="d-block rounded-circle float-start" style="width: 30px;height: 30px" src="images/I2.png">
+                        <div class="d-flex justify-content-between py-2">
+                          
+                          <div class="badge bg-light text-darkBrown px-3">紀錄者:may33</div>
+                          <div class=" px-3"><span>2 days 20:17:20</span></div>
+                          
+                          
+                        </div>
+  
+                        <h5 class="card-title fw-bold text-center font-32 my-3 border-bottom border-1 border-primary pb-3">六龜十八羅漢山自然保護</h5>
+                        
+                        <p class="card-text">轄區內有秀麗的山巒、保育完好的森林、優質的湯泉與豐富的自然生態資源，依山傍水、氣候溫和宜人，日照充足。</p>
+                        <a href="#" class="btn btn-primary w-100 fw-bold">看更多</a>
+                        <div class="d-flex justify-content-between">
+                          <div><i class="bi bi-eye fs-4"></i><span class="ms-2">663</span></div>
+                          <div class="text-primary"><i class="bi bi-star-fill fs-4"></i><span class="ms-2">3.87</span></div>
+                        </div>
+                      </div>
+              </div>
+            </li>
+            <li class="col-12 col-md-4">
+              <div class="card mb-3">
+                <div class="position-absolute " style="top: 20px; right: 20px">
+                  <button type="button" class="btn btn-outline-success img-thumbnail ">
+                    <i class="bi bi-bicycle fs-5"></i>
+                  </button>
+                  <button type="button" class="btn btn-outline-danger rounded-pill ">
+                    <i class="bi bi-heart fs-5 "></i>
+                  </button>
+                </div>
+                <img src="images/D03.jpg" class="card-img-top" alt="..." />
+                      <div class="card-body">
+                        <img class="d-block rounded-circle float-start" style="width: 30px;height: 30px" src="images/I3.jpg">
+                        <div class="d-flex justify-content-between py-2">
+                          
+                          <div class="badge bg-light text-darkBrown px-3">紀錄者:小白</div>
+                          <div class=" px-3"><span>5 days 15:05:20</span></div>
+                          
+                          
+                        </div>
+                        <h5 class="card-title fw-bold text-center font-32 my-3 border-bottom border-1 border-primary pb-3">愛河連接蓮池潭</h5>
+                        
+                        <p class="card-text">高雄市"愛河"沿線最完整也最宜人的一條單車步道，沿著愛河兩岸河堤，北至"蓮池潭"、南至"愛河出海口"。</p>
+                        <a href="#" class="btn btn-primary w-100 fw-bold">看更多</a>
+                        <div class="d-flex justify-content-between">
+                          <div><i class="bi bi-eye fs-4"></i><span class="ms-2">564</span></div>
+                          <div class="text-primary"><i class="bi bi-star-fill fs-4"></i><span class="ms-2">4.11</span></div>
+                        </div>
+                      </div>
+              </div>
+            </li>
+            <li class="col-12 col-md-4">
+              <div class="card mb-3">
+                <div class="position-absolute" style="top: 20px; right: 20px">
+                  <button type="button" class="btn btn-outline-success img-thumbnail ">
+                    <i class="bi bi-bicycle fs-5"></i>
+                  </button>
+                  <button type="button" class="btn btn-outline-danger rounded-pill">
+                    <i class="bi bi-heart fs-5"></i>
+                  </button>
+                </div>
+                <img src="images/D04.jpg" class="card-img-top" alt="..." />
+                      <div class="card-body">
+                        <img class="d-block rounded-circle float-start" style="width: 30px;height: 30px" src="images/I4.jpg">
+                        <div class="d-flex justify-content-between py-2">
+                          
+                          <div class="badge bg-light text-darkBrown px-3">紀錄者:胖胖</div>
+                          <div class=" px-3"><span>1 days 3:05:20</span></div>
+                          
+                          
+                        </div>
+                        <h5 class="card-title fw-bold text-center font-32 my-3 border-bottom border-1 border-primary pb-3">阿公店水庫自行車道</h5>
+                        
+                        <p class="card-text">車道內設有環湖10景，分別為崗山倒影、長堤夕照、龍口吞泉、水漾釣月、煙波虹橋、竹林泮騎、樹影果香、晨鐘......</p>
+                        <a href="#" class="btn btn-primary w-100 fw-bold">看更多</a>
+                        <div class="d-flex justify-content-between">
+                          <div><i class="bi bi-eye fs-4"></i><span class="ms-2">1085</span></div>
+                          <div class="text-primary"><i class="bi bi-star-fill fs-4"></i><span class="ms-2">3.90</span></div>
+                        </div>
+                      </div>
+                
+              </div>
+            </li>
+            <a href="#" class="btn btn-primary w-100 fw-bold">看更多</a>
+          </div>
+
+
+          <div class="row">
+            <div class="col ">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                      <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                          <span aria-hidden="true">&laquo;</span>
+                        </a>
+                      </li>
+                      <li class="page-item"><a class="page-link" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item"><a class="page-link" href="#">4</a></li>
+                      <li class="page-item"><a class="page-link" href="#">5</a></li>
+                      <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                          <span aria-hidden="true">&raquo;</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+            </div>
+        </div>
+
+
+
+          
+
+          
+
+
+        </div>
+
+
+
+        
+
+        
+      </section>
+
+
+
+      <!-- 頁尾 -->
+      <footer class="container-fluid text-center py-4 bg-darkBrown text-white">Copyright © 高雄鐵馬行 All rights reserved.</footer>
+      <!-- end of 頁尾 -->
+  
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+        crossorigin="anonymous"
+      ></script>
+    
+</body>
+</html>
