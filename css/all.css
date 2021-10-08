@@ -12637,6 +12637,29 @@ a {
   color: transparent;
 }
 
+.navbar-toggler {
+  border: none;
+  background-color: transparent;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.dropdown-menu {
+  background-color: #fdfce5;
+  padding: 0;
+  border: none;
+}
+
+.dropdown-menu ul {
+  list-style: none;
+}
+
 .btn {
   border-radius: 19px;
   border-radius: 19px;

@@ -54,6 +54,26 @@ a {
   color: transparent;
 }
 
+.navbar-toggler {
+  border: none;
+  background-color: transparent;
+}
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.dropdown-menu {
+  background-color: $lighter;
+  padding: 0;
+  border: none;
+  ul {
+    list-style: none;
+  }
+}
+
 @import 'mixin';
 @import 'custom/_button';
 @import 'custom/_nav';
