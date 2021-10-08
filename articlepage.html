@@ -14,76 +14,49 @@
       </head>
 <body>
     <!-- header navbar -->
-    <header class="bg-white border-bottom border-primary border-4 sticky-top">
-        <nav class="navbar navbar-expand-lg navbar-light">
-          <div class="container">
-            <a class="navbar-brand py-3" href="#">
-              <img src="logo.jpg" alt="logo" width="111" height="40" />
-            </a>
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link px-4" href="#">關於我們</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link px-4" href="#">熱門路線</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link px-4" href="#">我的路線</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link px-4" href="#">會員中心</a>
-                </li>
-              </ul>
-              <div>
-                <button class="btn btn-primary px-4 me-3" data-bs-toggle="modal" data-bs-target="#loginModal">登入</button>
-                <button class="btn btn-outline-secondary px-4">註冊</button>
-              </div>
-            </div>
-          </div>
-        </nav>
-      </header>
-
-        <!-- login form -->
-    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header bg-lightBlue">
-              <h5 class="modal-title fw-bold font-24" id="loginModalLabel">登入</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <div class="mb-3">
-                <label for="account" class="form-label">帳號</label>
-                <input type="text" name="account" id="account" class="form-control" />
-              </div>
-              <div class="mb-1">
-                <label for="password" class="form-label">密碼</label>
-                <input type="password" name="password" id="password" class="form-control" />
-              </div>
-              <a href="#" class="font-14 text-lightBrown">忘記密碼？</a>
-            </div>
-            <div class="modal-footer border-0">
-              <button type="button" class="btn btn-primary w-100 fw-bold">登入</button>
-            </div>
-            <div class="position-relative d-flex justify-content-center my-4 p-1">
-              <div class="formTitle font-14 bg-white px-1">還沒有帳號？<a href="#" class="text-info">註冊一個帳號</a></div>
-              <div class="formLine position-absolute border-bottom border-1 border-lightBrown w-100 top-50 start-0 translate-middle-y"></div>
+    <header class="bg-white border-bottom border-primary border-4 fixed-top">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+          <a class="navbar-brand py-3" href="./homepage.html">
+            <img src="./images/logo.png" alt="logo" width="90" height="55" />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link px-4" href="./officialAllRoute.html">官方路線</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link px-4" href="./hashtag.html">私人推薦</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link px-4 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> 會員中心 </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="./memberpage.html">我的推薦&收藏</a></li>
+                  <li><a class="dropdown-item" href="./articleEdit.html">路線編輯</a></li>
+                </ul>
+              </li>
+            </ul>
+            <div>
+              <button class="btn btn-primary px-4 me-3" data-bs-toggle="modal" data-bs-target="#loginModal">登入</button>
+              <button class="btn btn-outline-secondary px-4" data-bs-toggle="modal" data-bs-target="#registModal">註冊</button>
             </div>
           </div>
         </div>
-      </div>
+      </nav>
+    </header>
+    <div style="height: 100px"></div>
+
 
       <section class="page-section" id="contact">
         <div class="container">

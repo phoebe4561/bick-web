@@ -3,7 +3,22 @@
   border-radius: 19px;
 }
 
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+  outline: none;
+  box-shadow: none;
+}
+
 .btn-primary:hover {
+  background: $info;
+  color: white;
+}
+
+.btn-light:hover {
   background: $info;
   color: white;
 }

@@ -12575,8 +12575,33 @@ fieldset:disabled .btn {
   }
 }
 
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
 body {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   font-weight: bold;
+}
+
+.container-wrapper {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
 }
 
 .font-12 {
@@ -12610,6 +12635,64 @@ li {
 a {
   text-decoration: none;
   color: transparent;
+}
+
+.btn {
+  border-radius: 19px;
+  border-radius: 19px;
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.btn-primary:hover {
+  background: #ff785e;
+  color: white;
+}
+
+.btn-light:hover {
+  background: #ff785e;
+  color: white;
+}
+
+.btn-outline-secondary {
+  border: 2px solid #858377;
+  color: #858377;
+}
+
+.btn-outline-secondary:hover {
+  background: #f4d19b;
+  border-color: #f4d19b;
+  color: #212529;
+}
+
+.nav-tabs {
+  border: none;
+}
+
+.nav-tabs .nav-link {
+  background: none;
+  border: none;
+  color: #636057;
+}
+
+.nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
+  font-weight: 700;
+}
+
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+  color: #636057;
+  font-weight: 700;
+  border-bottom: 2px solid #f4d19b;
 }
 
 .banner {
@@ -12648,44 +12731,9 @@ a {
   z-index: 10;
 }
 
-.btn {
-  border-radius: 19px;
-  border-radius: 19px;
-}
-
-.btn-primary:hover {
-  background: #ff785e;
-  color: white;
-}
-
-.btn-outline-secondary {
-  border: 2px solid #858377;
-  color: #858377;
-}
-
-.btn-outline-secondary:hover {
-  background: #f4d19b;
-  border-color: #f4d19b;
-  color: #212529;
-}
-
-.nav-tabs {
-  border: none;
-}
-
-.nav-tabs .nav-link {
-  background: none;
-  border: none;
-  color: #636057;
-}
-
-.nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
-  font-weight: 700;
-}
-
-.nav-tabs .nav-link.active,
-.nav-tabs .nav-item.show .nav-link {
-  color: #636057;
-  font-weight: 700;
-  border-bottom: 2px solid #f4d19b;
+.content-box {
+  background: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  margin-top: 10px;
 }

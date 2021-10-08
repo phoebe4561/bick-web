@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/all.css" />
+  </head>
+  <body>
+    <header class="bg-white border-bottom border-primary border-4 fixed-top">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+          <a class="navbar-brand py-3" href="./homepage.html">
+            <img src="./images/logo.png" alt="logo" width="90" height="55" />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link px-4" href="./officialAllRoute.html">官方路線</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link px-4" href="./hashtag.html">私人推薦</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link px-4 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> 會員中心 </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="./memberpage.html">我的推薦&收藏</a></li>
+                  <li><a class="dropdown-item" href="./articleEdit.html">路線編輯</a></li>
+                </ul>
+              </li>
+            </ul>
+            <div>
+              <button class="btn btn-primary px-4 me-3" data-bs-toggle="modal" data-bs-target="#loginModal">登入</button>
+              <button class="btn btn-outline-secondary px-4" data-bs-toggle="modal" data-bs-target="#registModal">註冊</button>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container-wrapper">
+      <div style="height: 100px"></div>
+
+      <div class="container-fluid bg-lighter py-5">
+        <!-- 個人資訊 -->
+        <div class="d-flex justify-content-center py-3">
+          <div class="card bg-lighter" style="width: 40rem">
+            <div class="card-header bg-primary">個人資訊</div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <img src="./images/banner1.jpg" class="img-fluid" />
+                </div>
+                <div class="col-md-6">
+                  <ul class="list-unstyled mb-0">
+                    <li class="py-2">姓名：<span></span></li>
+                    <li class="py-2">信箱：<span></span></li>
+                    <li class="py-2">生日：<span></span></li>
+                    <li class="py-2">性別：<span></span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer"></div>
+          </div>
+        </div>
+
+        <!-- 我的推薦 -->
+        <div class="d-flex justify-content-center py-3">
+          <div class="card bg-lighter" style="width: 40rem">
+            <div class="card-header bg-primary">我的推薦</div>
+            <div class="card-body">
+              <ul class="list-unstyled mb-0">
+                <li class="py-2">我的推薦1</li>
+                <li class="py-2">我的推薦2</li>
+                <li class="py-2">我的推薦3</li>
+                <li class="py-2">我的推薦4</li>
+              </ul>
+            </div>
+            <div class="card-footer"></div>
+          </div>
+        </div>
+
+        <!-- 我的最愛 -->
+        <div class="col d-flex justify-content-center py-3">
+          <div class="card bg-lighter" style="width: 40rem">
+            <div class="card-header bg-primary">我的最愛</div>
+            <div class="card-body">
+              <ul class="list-unstyled mb-0">
+                <li class="py-2">我的最愛1</li>
+                <li class="py-2">我的最愛2</li>
+                <li class="py-2">我的最愛3</li>
+                <li class="py-2">我的最愛4</li>
+              </ul>
+            </div>
+            <div class="card-footer"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 頁尾 -->
+    <footer class="container-fluid text-center py-4 bg-darkBrown text-white">Copyright © 高雄鐵馬行 All rights reserved.</footer>
+    <!-- end of 頁尾 -->
+  </body>
+</html>

@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>高雄鐵馬行</title>
+    <!--map-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <!--!fontawsome-->
+    <script src="https://kit.fontawesome.com/eb2b622fe6.js" crossorigin="anonymous"></script>
+    <!--bs5 icon-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+
+    <link rel="stylesheet" href="./css/all.css" />
+  </head>
+  <body>
+    <div id="app">
+      <!-- header navbar -->
+      <header class="bg-white border-bottom border-primary border-4 fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="container">
+            <a class="navbar-brand py-3" href="./homepage.html">
+              <img src="./images/logo.png" alt="logo" width="90" height="55" />
+            </a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link px-4" href="./officialAllRoute.html">官方路線</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link px-4" href="./hashtag.html">私人推薦</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link px-4 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> 會員中心 </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="./memberpage.html">我的推薦&收藏</a></li>
+                    <li><a class="dropdown-item" href="./articleEdit.html">路線編輯</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <div>
+                <button class="btn btn-primary px-4 me-3" data-bs-toggle="modal" data-bs-target="#loginModal">登入</button>
+                <button class="btn btn-outline-secondary px-4" data-bs-toggle="modal" data-bs-target="#registModal">註冊</button>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+      <div class="container-wrapper">
+        <div style="height: 100px"></div>
+
+        <!-- 路線介紹 -->
+        <div class="routeTitle">
+          <h1 class="bg-primary px-5 py-3">
+            藤枝路線
+            <span>
+              <a href="#" class="btn btn-light mx-3">高級路線</a>
+              <a class="btn font-16 btn-outline-secondary" href="#">#爬坡</a>
+              <a class="btn font-16 btn-outline-secondary" href="#">#溪流</a>
+              <a class="btn font-16 btn-outline-secondary" href="#">#大自然</a>
+            </span>
+          </h1>
+          <!-- hashtag -->
+        </div>
+        <div class="container-fluid">
+          <div class="row py-2">
+            <div class="col-12 col-md-6">
+              <h3 class="font-24 ps-3 border-start border-4 border-primary fw-bold my-4">路線介紹</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio in, maiores nesciunt eius voluptatem perferendis quos error ab, accusamus inventore dolor consequuntur quam odio
+                rem eaque recusandae officiis ducimus corrupti?
+              </p>
+              <h3 class="font-24 ps-3 border-start border-4 border-primary fw-bold my-4">交通資訊</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, velit?</p>
+            </div>
+            <div class="col-12 col-md-6">
+              <img src="./images/banner1.jpg" alt="" class="img-fluid" />
+            </div>
+          </div>
+        </div>
+
+        <!-- 路線地圖 -->
+
+        <div class="container-fluid bg-lighter py-2">
+          <h5 class="font-24 ps-3 border-start border-4 border-primary fw-bold my-4 mb-3">路線地圖</h5>
+          <hr />
+          <!-- map -->
+          <div class="row">
+            <div class="col-12 col-md-8">
+              <div class="form-group">
+                <input placeholder="輸入景點名稱" type="text" class="form-control" ref="site" v-model="site" />
+              </div>
+              <div id="map" class="embed-responsive embed-responsive-16by9"></div>
+              <div class="d-flex my-2 align-items-center">
+                <div>騎車路線:</div>
+                <button type="button" class="btn btn-outline-secondary mx-1" v-for="f in features" @click="openInfoWindows(f.properties.id)">{{ f.properties.name }}</button>
+              </div>
+              <div class="d-flex my-2 align-items-center">
+                <div>鄰近美食:</div>
+                <button type="button" class="btn btn-outline-secondary mx-1" v-for="f in foods" @click="openInfoWindows(f.properties.id)">{{ f.properties.name }}</button>
+              </div>
+
+              <!-- 放評論摘要的div -->
+              <div class="row" v-if="place != null">
+                <div class="col" v-if="place.reviews != null">
+                  <h5>網友評論：</h5>
+                  <div class="row" v-for="p in place.reviews">
+                    <div class="col">
+                      <ul class="list-unstyled">
+                        <li class="media">
+                          <img :src="p.profile_photo_url" class="img-fluid mr-3" />
+                          <div class="media-body">
+                            <h5 class="mt-0 mb-1">
+                              <a target="_blank" :href="p.author_url">{{ p.author_name }}</a>
+                            </h5>
+                            <p>{{ p.text }}</p>
+                            <h6>{{ p.relative_time_description }}</h6>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 右邊路線評論  -->
+            <div class="col-12 col-md-4">
+              <div class="card">
+                <h5 class="text-center bg-light rounded-1 border-start border-end border-4 border-primary py-2 fw-bold tracking-3">路線相關評價</h5>
+                <div class="card-body">
+                  <h6 class="card-title">
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <strong>陳小鐵</strong>
+                        <img src="images/start.jpg" style="width: 25px" /><img src="images/start.jpg" style="width: 25px" /><img src="images/start.jpg" style="width: 25px" />
+                      </div>
+                      <div>2021/10/01</div>
+                    </div>
+                  </h6>
+                  <p class="card-text font-12">沿途風景很美，有很多拍照打卡的景點，超推薦!!</p>
+
+                  <h6 class="card-title">
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <strong>Andy wu</strong>
+                        <img src="images/start.jpg" style="width: 25px" /><img src="images/start.jpg" style="width: 25px" /><img src="images/start.jpg" style="width: 25px" />
+                      </div>
+                      <div>2021/10/01</div>
+                    </div>
+                  </h6>
+                  <p class="card-text font-12">空氣好、風景佳、還有超多美食可以吃，超推薦老街的肉羹麵喔!</p>
+
+                  <h6 class="card-title">
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <strong>劉美美</strong>
+                        <img src="images/start.jpg" style="width: 25px" /><img src="images/start.jpg" style="width: 25px" /><img src="images/start.jpg" style="width: 25px" />
+                      </div>
+                      <div>2021/10/01</div>
+                    </div>
+                  </h6>
+                  <p class="card-text font-12">路線騎起來平緩、但要注意防曬，建議下午4點後騎比較不會那麼曬</p>
+                  <h6 class="card-title">
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <strong>Candy-Lin</strong>
+                        <img src="images/start.jpg" style="width: 25px" /><img src="images/start.jpg" style="width: 25px" /><img src="images/start.jpg" style="width: 25px" />
+                      </div>
+                      <div>2021/10/01</div>
+                    </div>
+                  </h6>
+                  <p class="card-text font-12">不推薦想瘦身減肥者來騎這條路線，因為老街美食太多樣，看到不吃很難受~~完全無法瘦身啊!!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 評價留言 -->
+          <form>
+            <h5 class="text-center bg-light rounded-1 border-start border-end border-4 border-primary py-2 fw-bold tracking-3">我的評價</h5>
+            <div class="card-body">
+              <!-- 暱稱直接抓資料庫註冊的名字(信箱)即可 -->
+              <div class="row">
+                <div class="col-6 my-2">
+                  <input type="date" class="form-control" id="exampleFormControlInput1" />
+                </div>
+                <div class="col-6">
+                  <span id="star1" class="font-32 s">☆</span>
+                  <span id="star2" class="font-32 s">☆</span>
+                  <span id="star3" class="font-32 s">☆</span>
+                  <span id="star4" class="font-32 s">☆</span>
+                  <span id="star5" class="font-32 s">☆</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="my-2">
+                  <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="內容" rows="3"></textarea>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary">送出</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- middle navbar -->
+        <div class="container-fluid border-bottom border-1 border-gray-300">
+          <div class="container">
+            <ul class="nav nav-tabs justify-content-between justify-content-lg-start" id="nav-tab" role="tablist">
+              <li class="nav-item">
+                <button
+                  onclick="goToTab()"
+                  class="nav-link active py-3"
+                  id="nav-intro-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#nav-intro"
+                  type="button"
+                  role="tab"
+                  aria-controls="nav-intro"
+                  aria-selected="true"
+                >
+                  景點
+                </button>
+              </li>
+              <li class="nav-item">
+                <button
+                  onclick="goToTab()"
+                  class="nav-link py-3"
+                  id="nav-food-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#nav-food"
+                  type="button"
+                  role="tab"
+                  aria-controls="nav-food"
+                  aria-selected="false"
+                >
+                  美食
+                </button>
+              </li>
+
+              <li class="nav-item">
+                <button
+                  onclick="goToTab()"
+                  class="nav-link py-3"
+                  id="nav-supply-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#nav-supply"
+                  type="button"
+                  role="tab"
+                  aria-controls="nav-supply"
+                  aria-selected="false"
+                >
+                  補給站
+                </button>
+              </li>
+              <li class="nav-item">
+                <button
+                  onclick="goToTab()"
+                  class="nav-link py-3"
+                  id="nav-fix-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#nav-fix"
+                  type="button"
+                  role="tab"
+                  aria-controls="nav-fix"
+                  aria-selected="false"
+                >
+                  維修站
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- main content -->
+        <div class="container py-2">
+          <div class="row">
+            <div class="tab-content" id="myTabContent">
+              <!-- 官方景點介紹 -->
+              <div class="tab-pane fade show active" id="nav-intro" role="tabpanel" aria-labelledby="nav-intro-tab">
+                <h3 class="font-24 ps-3 border-start border-4 border-primary fw-bold my-4">景點</h3>
+                <div class="row">
+                  <div class="col-12 col-md-6">
+                    <div class="card mb-3">
+                      <!-- anchor跳點 --><a name="anchor景點1"></a>
+                      <img src="image_mia/point1.jpg" class="card-img-top img-fluid" alt="..." />
+                      <div class="card-body">
+                        <h5 class="card-title fw-bold text-center font-32 my-3 border-bottom border-1 border-primary pb-3">葫蘆谷瀑布</h5>
+                        <div class="d-flex justify-content-between pb-2 mb-2 flex-lg-row flex-md-column">
+                          <div class="badge bg-light font-20 text-darkBrown px-3">
+                            <!-- 評分星星 -->
+                            <img src="image_mia/star.png" height="22px" /><img src="image_mia/star.png" height="22px" /><img src="image_mia/star.png" height="22px" /><img
+                              src="image_mia/star.png"
+                              height="22px"
+                            />
+                          </div>
+                          <div class="badge bg-darkBrown font-18 px-2 align-self-center"><span class="text-primary">5分鐘路程</span></div>
+                        </div>
+                        <p class="card-text">超好到的瀑布 ! 距離停車場只要走5分鐘</p>
+                        <p class="card-text">離主要道路也好近 可以當作一個休息站</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="card mb-3">
+                      <!-- anchor跳點 --><a name="anchor景點2"></a>
+                      <img src="image_mia/point1-2.jpg" class="card-img-top img-fluid" alt="..." />
+                      <div class="card-body">
+                        <h5 class="card-title fw-bold text-center font-32 my-3 border-bottom border-1 border-primary pb-3">寶山二集團櫻花公園</h5>
+                        <div class="d-flex justify-content-between pb-2 mb-2 flex-lg-row flex-md-column">
+                          <div class="badge bg-light font-20 text-darkBrown px-3">
+                            <!-- 評分星星 -->
+                            <img src="image_mia/star.png" height="22px" /><img src="image_mia/star.png" height="22px" /><img src="image_mia/star.png" height="22px" /><img
+                              src="image_mia/star.png"
+                              height="22px"
+                            />
+                          </div>
+                          <div class="badge bg-darkBrown font-18 px-2 align-self-center"><span class="text-primary">30分鐘路程</span></div>
+                        </div>
+                        <p class="card-text">盛開的櫻花山海</p>
+                        <p class="card-text">階梯步道整理的完善</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="card mb-3">
+                      <!-- anchor跳點 --><a name="anchor景點3"></a>
+                      <img src="image_mia/point1-3.jpg" class="card-img-top img-fluid" alt="..." />
+                      <div class="card-body">
+                        <h5 class="card-title fw-bold text-center font-32 my-3 border-bottom border-1 border-primary pb-3">美濃民俗村</h5>
+                        <div class="d-flex justify-content-between pb-2 mb-2 flex-lg-row flex-md-column">
+                          <div class="badge bg-light font-20 text-darkBrown px-3">
+                            <!-- 評分星星 -->
+                            <img src="image_mia/star.png" height="22px" /><img src="image_mia/star.png" height="22px" /><img src="image_mia/star.png" height="22px" /><img
+                              src="image_mia/star.png"
+                              height="22px"
+                            />
+                          </div>
+                          <div class="badge bg-darkBrown font-18 px-2 align-self-center"><span class="text-primary">30分鐘路程</span></div>
+                        </div>
+                        <p class="card-text">濃濃客家文化的街道</p>
+                        <p class="card-text">流傳許久的技藝 適合小孩大朋友親手做</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="card mb-3">
+                      <!-- anchor跳點 --><a name="anchor景點4"></a>
+                      <img src="image_mia/point1-4.jpg" class="card-img-top img-fluid" alt="..." />
+                      <div class="card-body">
+                        <h5 class="card-title fw-bold text-center font-32 my-3 border-bottom border-1 border-primary pb-3">美濃客家文物館</h5>
+                        <div class="d-flex justify-content-between pb-2 mb-2 flex-lg-row flex-md-column">
+                          <div class="badge bg-light font-20 text-darkBrown px-3">
+                            <!-- 評分星星 -->
+                            <img src="image_mia/star.png" height="22px" /><img src="image_mia/star.png" height="22px" /><img src="image_mia/star.png" height="22px" /><img
+                              src="image_mia/star.png"
+                              height="22px"
+                            />
+                          </div>
+                          <div class="badge bg-darkBrown font-18 px-2 align-self-center"><span class="text-primary">1小時路程</span></div>
+                        </div>
+                        <p class="card-text">保存客家許多傳統的文物</p>
+                        <p class="card-text">食 衣 住 行 與生活息息相關的物品</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- 官方美食介紹 -->
+              <div class="tab-pane fade show" id="nav-food" role="tabpanel" aria-labelledby="nav-food-tab">
+                <h3 class="font-24 ps-3 border-start border-4 border-primary fw-bold my-4">美食</h3>
+                <div class="row">
+                  <div class="col-12 col-md-6">
+                    <div class="card mb-3">
+                      <!-- anchor跳點 --><a name="anchor美食1"></a>
+                      <img src="image_mia/eat1.jpg" class="card-img-top" height="100%" alt="..." />
+                      <div class="card-body">
+                        <h5 class="card-title fw-bold text-center font-32 my-3 border-bottom border-1 border-primary pb-3">六龜源通香腸</h5>
+                        <div class="d-flex justify-content-between pb-2 mb-2 flex-lg-row flex-md-column">
+                          <div class="badge bg-light font-20 text-darkBrown px-3">
+                            <!-- 評分星星 -->
+                            <img src="image_mia/star.png" height="22px" /><img src="image_mia/star.png" height="22px" /><img src="image_mia/star.png" height="22px" /><img
+                              src="image_mia/star.png"
+                              height="22px"
+                            />
+                          </div>
+                          <div class="badge bg-darkBrown font-18 px-2 align-self-center">推薦:<span class="text-primary">大腸包小腸</span></div>
+                        </div>
+                        <p class="card-text">撲鼻的香味絕對使你想停車 ! 軟Q的米腸跟蒜頭加暴的香腸再來一碗關東煮的暖胃是絕佳組合</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="card mb-3">
+                      <!-- anchor跳點 --><a name="anchor美食2"></a>
+                      <img src="image_mia/eat1-2.jpg" class="card-img-top" height="100%" alt="..." />
+                      <div class="card-body">
+                        <h5 class="card-title fw-bold text-center font-32 my-3 border-bottom border-1 border-primary pb-3">鄭家粄條</h5>
+                        <div class="d-flex justify-content-between pb-2 mb-2 flex-lg-row flex-md-column">
+                          <div class="badge bg-light font-20 text-darkBrown px-3">
+                            <!-- 評分星星 -->
+                            <img src="image_mia/star.png" height="22px" /><img src="image_mia/star.png" height="22px" /><img src="image_mia/star.png" height="22px" />
+                          </div>
+                          <div class="badge bg-darkBrown font-18 px-2 align-self-center">推薦:<span class="text-primary">紅燒豬肉麵</span></div>
+                        </div>
+                        <p class="card-text">來一碗道地的客家粄條吧 ! 小菜推薦大腸和筍子 偷偷說:可以選麵條喔</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="card mb-3">
+                      <!-- anchor跳點 --><a name="anchor美食3"></a>
+                      <img src="image_mia/eat1-3.jpg" class="card-img-top" height="100%" alt="..." />
+                      <div class="card-body">
+                        <h5 class="card-title fw-bold text-center font-32 my-3 border-bottom border-1 border-primary pb-3">櫻花公園布農族野豬香腸</h5>
+                        <div class="d-flex justify-content-between pb-2 mb-2 flex-lg-row flex-md-column">
+                          <div class="badge bg-light font-20 text-darkBrown px-3">
+                            <!-- 評分星星 -->
+                            <img src="image_mia/star.png" height="22px" /><img src="image_mia/star.png" height="22px" /><img src="image_mia/star.png" height="22px" />
+                          </div>
+                          <div class="badge bg-darkBrown font-18 px-2 align-self-center">推薦:<span class="text-primary">鐵板山豬肉</span></div>
+                        </div>
+                        <p class="card-text">來一份野味十足的竹筒飯跟山豬肉吧 ! 騎到終點站犒賞自己就像打獵歸來的獵人般 來點野菜特別有感覺</p>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- 素食 -->
+                  <div class="col-12 col-md-6">
+                    <div class="card mb-3">
+                      <!-- anchor跳點 --><a name="anchor美食V-1"></a>
+                      <div class="position-absolute" style="top: 20px; right: 20px">
+                        <button type="button" class="btn btn-success rounded-pill">素</button>
+                      </div>
+                      <img src="image_mia/eat1-4.jpg" class="card-img-top" alt="..." />
+                      <div class="card-body">
+                        <h5 class="card-title fw-bold text-center font-32 my-3 border-bottom border-1 border-primary pb-3">隨緣素食自助餐</h5>
+                        <div class="d-flex justify-content-between pb-2 mb-2 flex-lg-row flex-md-column">
+                          <div class="badge bg-light font-20 text-darkBrown px-3">
+                            <!-- 評分星星 -->
+                            <img src="image_mia/star.png" height="22px" /><img src="image_mia/star.png" height="22px" /><img src="image_mia/star.png" height="22px" />
+                          </div>
+                          <div class="badge bg-darkBrown font-18 px-2 align-self-center">推薦:<span class="text-primary">壽司捲</span></div>
+                        </div>
+                        <p class="card-text">太陽曬得你要烤焦了嗎? 沒甚麼食慾 想來點清淡的 那來點蔬菜吧</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- 補給站 -->
+              <div class="tab-pane fade show" id="nav-supply" role="tabpanel" aria-labelledby="nav-supply-tab">
+                <div class="card overflow-hidden mb-3">
+                  <div class="row g-0">
+                    <div class="col-5 col-md-4">
+                      <img class="w-100 h-100 object-fit: cover" src="image_mia/supply1.jpg" alt="news01" />
+                    </div>
+                    <div class="col-7 col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title fw-bold">寶山派出所</h5>
+                        <p class="card-text mb-2 font-14 text-lightBrown">高雄市桃源區寶山巷16號</p>
+                        <p class="card-text mb-2 font-14 text-lightBrown">07-6892464</p>
+                        <p class="card-text mb-2 text-lightBrown d-none d-lg-block">水 | 廁所</p>
+                        <!-- <a class="text-info font-14 fw-bold" href="#">MORE</a> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card overflow-hidden mb-3">
+                  <div class="row g-0">
+                    <div class="col-5 col-md-4">
+                      <img class="w-100 h-100 object-fit: cover" src="image_mia/supply1-2.jpg" alt="news02" />
+                    </div>
+                    <div class="col-7 col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title fw-bold">六龜區農會生鮮超市 | 全家</h5>
+                        <p class="card-text mb-2 font-14 text-lightBrown">高雄市六龜區光復路109號</p>
+                        <p class="card-text mb-2 font-14 text-lightBrown">07-6892079</p>
+                        <p class="card-text mb-2 text-lightBrown d-none d-lg-block">水 | 廁所 | 食物 (內用)</p>
+                        <!-- <a class="text-info font-14 fw-bold" href="#">MORE</a> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card overflow-hidden mb-3">
+                  <div class="row g-0">
+                    <div class="col-5 col-md-4">
+                      <img class="w-100 h-100 object-fit: cover" src="image_mia/supply1-3.jpg" alt="news03" />
+                    </div>
+                    <div class="col-7 col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title fw-bold">二集團柑仔店｜桃寶商店</h5>
+                        <p class="card-text mb-2 font-14 text-lightBrown">高雄市桃源區荖濃溪林道(二集團茶園旁)</p>
+                        <p class="card-text mb-2 font-14 text-lightBrown">07-6893346</p>
+                        <p class="card-text mb-2 text-lightBrown d-none d-lg-block">水 | 食物</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- 維修站 -->
+              <div class="tab-pane fade show" id="nav-fix" role="tabpanel" aria-labelledby="nav-fix-tab">
+                <!-- Q1 -->
+                <div class="accordion mb-3" id="faq1">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <span>維修車站</span>
+                        <span></span>
+                      </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faq1">
+                      <div class="accordion-body">美源車行 | 07-6813133 | 高雄市美濃區中山路一段13號</div>
+                      <div class="accordion-body">捷安特(高雄旗山慶泰車行) | 07-6612244 | 高雄市旗山區延平一路443號</div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Q2 -->
+                <div class="accordion mb-3" id="faq2">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                        <span>顧路幫手</span>
+                        <span></span>
+                      </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#faq2">
+                      <div class="accordion-body">捷安特(高雄旗山慶泰車行) | 07-6612244 | 高雄市旗山區延平一路443號</div>
+                      <div class="accordion-body">永富修車廠 | 0932-971353 | 高雄市旗山區延平一路443號</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- login form -->
+      <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header bg-lightBlue">
+              <h5 class="modal-title fw-bold font-24" id="loginModalLabel">登入</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="account" class="form-label">帳號</label>
+                <input type="text" name="account" id="account" class="form-control" />
+              </div>
+              <div class="mb-1">
+                <label for="password" class="form-label">密碼</label>
+                <input type="password" name="password" id="password" class="form-control" />
+              </div>
+              <a href="#" class="font-14 text-lightBrown">忘記密碼？</a>
+            </div>
+            <div class="modal-footer border-0">
+              <button type="button" class="btn btn-primary w-100 fw-bold">登入</button>
+            </div>
+            <div class="position-relative d-flex justify-content-center my-4 p-1">
+              <div class="formTitle font-14 bg-white px-1">還沒有帳號？<a href="#" class="text-info">註冊一個帳號</a></div>
+              <div class="formLine position-absolute border-bottom border-1 border-lightBrown w-100 top-50 start-0 translate-middle-y"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 頁尾 -->
+      <footer class="container-fluid text-center py-4 bg-darkBrown text-white">Copyright © 高雄鐵馬行 All rights reserved.</footer>
+      <!-- end of 頁尾 -->
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- 將 YOUR_API_KEY 替換成你的 API Key 即可 -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUX6kQOm-gu6o6Gl48_pkCuWkPfOeVjKw&libraries=places"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+
+    <script>
+      const googleMap = new Vue({
+        el: '#app',
+        data: {
+          map: null,
+          features: [], // 存入每一個地點
+          foods: [], // 存入每一個食物
+          infowindowAll: {}, // 存入每一個marker上的info windows
+          polylinePathPoints: [
+            //路線連線
+            { lat: 22.899016535135793, lng: 120.5370653 },
+            { lat: 22.88293629047007, lng: 120.54693822546191 },
+            { lat: 22.866751303316644, lng: 120.57983621687488 },
+          ],
+          autocomplete: null,
+          site: '', // place API要綁定的搜尋框
+          place: null, // 存place確定後回傳的資料
+        },
+        methods: {
+          // init google map
+          initMap() {
+            // 預設顯示的地點
+            let location = {
+              lat: 22.899016535135793, // 經度
+              lng: 120.5370653, // 緯度
+            };
+
+            // 建立地圖
+            this.map = new google.maps.Map(document.getElementById('map'), {
+              center: location,
+              zoom: 13,
+              mapTypeId: 'terrain',
+            });
+
+            //建立路線
+            let polylinePath = new google.maps.Polyline({
+              path: this.polylinePathPoints,
+              geodesic: true,
+              strokeColor: '#008800',
+              strokeOpacity: 0.8,
+              strokeWeight: 10,
+              editable: false,
+              geodesic: false,
+              draggable: false,
+            });
+
+            polylinePath.setMap(this.map);
+
+            // 放置多個marker
+            fetch('./maps/map_1.geojson')
+              .then((results) => results.json())
+              .then((result) => {
+                console.log(result);
+                this.features = result.features;
+                this.foods = result.foods;
+
+                Array.prototype.forEach.call(this.features, (r) => {
+                  let latLng = new google.maps.LatLng(r.geometry.coordinates[0], r.geometry.coordinates[1]);
+                  let marker = new google.maps.Marker({
+                    position: latLng,
+                    map: this.map,
+                    animation: google.maps.Animation.DROP, // DROP掉下來、BOUNCE一直彈跳
+                    draggable: false,
+                  });
+
+                  // info window
+                  let infowindow = new google.maps.InfoWindow({
+                    content: `
+                    <h6>${r.properties.name}</h6>
+                    <div>${r.properties.site}</div>
+                    `, // 支援html
+                  });
+
+                  // 監聽 marker click 事件
+                  marker.addListener('click', (e) => {
+                    infowindow.open(this.map, marker);
+                  });
+
+                  // 加一個open的method，就可由外部按鈕開啟
+                  this.infowindowAll[r.properties.id] = {
+                    open: function () {
+                      infowindow.open(this.map, marker);
+                    },
+                  };
+                });
+
+                Array.prototype.forEach.call(this.foods, (r) => {
+                  let latLng1 = new google.maps.LatLng(r.geometry.coordinates[0], r.geometry.coordinates[1]);
+                  let marker1 = new google.maps.Marker({
+                    position: latLng1,
+                    map: this.map,
+                    icon: './food.svg',
+                    animation: google.maps.Animation.DROP, // DROP掉下來、BOUNCE一直彈跳
+                    draggable: false,
+                  });
+
+                  // info window
+                  let infowindow1 = new google.maps.InfoWindow({
+                    content: `
+                        <h6>${r.properties.name}</h6>
+                        <div>${r.properties.site}</div>
+                        <div>${r.properties.phone}</div>
+                        `,
+                  });
+
+                  // 監聽 marker click 事件
+                  marker1.addListener('click', (e) => {
+                    infowindow1.open(this.map, marker1);
+                  });
+
+                  // 加一個open的method，就可由外部按鈕開啟
+                  this.infowindowAll[r.properties.id] = {
+                    open: function () {
+                      infowindow1.open(this.map, marker1);
+                    },
+                  };
+                });
+              });
+          },
+
+          // 由外部按鈕開啟info windows
+          openInfoWindows(id) {
+            this.infowindowAll[id].open();
+          },
+          siteAuto() {
+            let options = {
+              componentRestrictions: { country: 'tw' }, // 限制在台灣範圍
+            };
+            this.autocomplete = new google.maps.places.Autocomplete(this.$refs.site, options);
+            this.autocomplete.addListener('place_changed', () => {
+              this.place = this.autocomplete.getPlace();
+              console.log(this.place);
+              if (this.place.geometry) {
+                let searchCenter = this.place.geometry.location;
+                this.map.panTo(searchCenter); // panTo是平滑移動、setCenter是直接改變地圖中心
+
+                // 放置標記
+                let search_marker = new google.maps.Marker({
+                  position: searchCenter,
+                  map: this.map,
+                  icon: 'flag.svg',
+                });
+
+                // info window
+                let search_infowindow = new google.maps.InfoWindow({
+                  content: this.place.formatted_address,
+                });
+                search_infowindow.open(this.map, search_marker);
+              }
+            });
+          },
+        },
+        created() {
+          window.addEventListener('load', () => {
+            this.initMap();
+            this.siteAuto();
+          });
+        },
+      });
+    </script>
+  </body>
+</html>
