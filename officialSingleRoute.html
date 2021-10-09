@@ -137,7 +137,7 @@
               </div>
             </div>
             <!-- 右邊路線評論  -->
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-4 py-md-0 py-3">
               <div class="card">
                 <h5 class="text-center bg-light rounded-1 border-start border-end border-4 border-primary py-2 fw-bold tracking-3">路線相關評價</h5>
                 <div class="card-body">
@@ -189,7 +189,7 @@
           </div>
 
           <!-- 評價留言 -->
-          <form>
+          <form class="py-3">
             <h5 class="text-center bg-light rounded-1 border-start border-end border-4 border-primary py-2 fw-bold tracking-3">我的評價</h5>
             <div class="card-body">
               <!-- 暱稱直接抓資料庫註冊的名字(信箱)即可 -->
@@ -630,7 +630,7 @@
             let polylinePath = new google.maps.Polyline({
               path: this.polylinePathPoints,
               geodesic: true,
-              strokeColor: '#008800',
+              strokeColor: '#fa8072',
               strokeOpacity: 0.8,
               strokeWeight: 10,
               editable: false,
@@ -644,7 +644,7 @@
             fetch('./maps/map_1.geojson')
               .then((results) => results.json())
               .then((result) => {
-                console.log(result);
+                // console.log(result);
                 this.features = result.features;
                 this.foods = result.foods;
 
@@ -653,6 +653,7 @@
                   let marker = new google.maps.Marker({
                     position: latLng,
                     map: this.map,
+                    icon: './images/mapicon/view01.png',
                     animation: google.maps.Animation.DROP, // DROP掉下來、BOUNCE一直彈跳
                     draggable: false,
                   });
@@ -662,7 +663,8 @@
                     content: `
                     <h6>${r.properties.name}</h6>
                     <div>${r.properties.site}</div>
-                    `, // 支援html
+                    <div><a style="color:blue;"  target="_blank" href="https://www.google.com/maps/place/${r.properties.name}/@${r.geometry.coordinates[0]},${r.geometry.coordinates[1]},17z/data=!4m8!1m2!3m1!2z576O5r-D5rC05qmL!3m4!1s0x346e41facd4f0f3f:0x134f5a8ea4084f42!8m2!3d22.8980875!4d120.5370653">Google地圖</a></div>
+                    `,
                   });
 
                   // 監聽 marker click 事件
@@ -683,7 +685,7 @@
                   let marker1 = new google.maps.Marker({
                     position: latLng1,
                     map: this.map,
-                    icon: './food.svg',
+                    icon: './images/mapicon/food.png',
                     animation: google.maps.Animation.DROP, // DROP掉下來、BOUNCE一直彈跳
                     draggable: false,
                   });
@@ -694,6 +696,7 @@
                         <h6>${r.properties.name}</h6>
                         <div>${r.properties.site}</div>
                         <div>${r.properties.phone}</div>
+                        <div><a style="color:blue;"  target="_blank" href="https://www.google.com/maps/place/${r.properties.name}/@${r.geometry.coordinates[0]},${r.geometry.coordinates[1]},17z/data=!4m8!1m2!3m1!2z576O5r-D5rC05qmL!3m4!1s0x346e41facd4f0f3f:0x134f5a8ea4084f42!8m2!3d22.8980875!4d120.5370653">Google地圖</a></div>
                         `,
                   });
 
